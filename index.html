@@ -265,6 +265,53 @@
       font-size:.85rem;color:#fff;font-weight:600;letter-spacing:.3px;
     }
 
+    /* ── MARCAS ── */
+    #marcas{border-top:1px solid var(--border)}
+    .marcas-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;
+    }
+    .marca-card{
+      background:var(--bg3);border:1px solid var(--border);border-radius:20px;
+      padding:28px 20px 24px;text-align:center;
+      text-decoration:none;color:var(--white);
+      display:flex;flex-direction:column;align-items:center;gap:14px;
+      position:relative;overflow:hidden;
+      transition:transform .3s,border-color .3s,box-shadow .3s;
+    }
+    .marca-card::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(212,136,58,.07),transparent);
+      opacity:0;transition:opacity .3s;
+    }
+    .marca-card:hover{transform:translateY(-6px);border-color:rgba(212,136,58,.35);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+    .marca-card:hover::before{opacity:1}
+    .marca-avatar{
+      width:80px;height:80px;border-radius:50%;
+      background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+      padding:3px;flex-shrink:0;
+    }
+    .marca-avatar-inner{width:100%;height:100%;border-radius:50%;border:3px solid var(--bg3);overflow:hidden}
+    .marca-avatar-inner img{width:100%;height:100%;object-fit:cover;display:block}
+    .marca-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
+    .marca-type{font-size:.72rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase}
+    .marca-role{
+      display:inline-flex;align-items:center;
+      background:rgba(212,136,58,.1);border:1px solid rgba(212,136,58,.22);
+      padding:4px 12px;border-radius:100px;
+      font-size:.72rem;color:var(--amber);font-weight:600;
+    }
+    .marca-arrow{position:absolute;top:18px;right:18px;color:var(--amber);font-size:1rem;opacity:.5;transition:opacity .3s,transform .3s}
+    .marca-card:hover .marca-arrow{opacity:1;transform:translate(2px,-2px)}
+
+    @media(max-width:1100px){
+      .marcas-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:768px){
+      .marcas-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+      .marca-card{padding:22px 14px 18px}
+      .marca-avatar{width:64px;height:64px}
+    }
+
     /* ── REDES ── */
     #redes{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     .redes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
@@ -456,6 +503,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#sobre" onclick="closeMobileMenu()">Sobre mí</a>
   <a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a>
+  <a href="#marcas" onclick="closeMobileMenu()">Marcas</a>
   <a href="#redes" onclick="closeMobileMenu()">Redes</a>
   <a href="https://www.instagram.com/levndrordgz/" target="_blank" class="mm-ig">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -472,6 +520,7 @@
   <ul class="nav-links">
     <li><a href="#sobre">Sobre mí</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#marcas">Marcas</a></li>
     <li><a href="#redes">Redes</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:10px">
@@ -648,6 +697,66 @@
         <img src="assets/instagram/portfolio-3.jpg" alt="Reel Leandro">
         <div class="portfolio-overlay"><span>↗ Ver en Instagram</span></div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- MARCAS -->
+<section id="marcas">
+  <div class="section-inner">
+    <div class="section-tag reveal">Colaboraciones</div>
+    <h2 class="section-title reveal d1">Marcas con las<br>que <em>trabajé</em></h2>
+
+    <div class="marcas-grid">
+
+      <a href="https://www.instagram.com/blas.cba/" target="_blank" class="marca-card reveal">
+        <span class="marca-arrow">↗</span>
+        <div class="marca-avatar">
+          <div class="marca-avatar-inner">
+            <img src="assets/instagram/brand-blas.jpg" alt="Blas Bar">
+          </div>
+        </div>
+        <div class="marca-name">Blas</div>
+        <div class="marca-type">Bar · Córdoba</div>
+        <span class="marca-role">Creador de Contenido</span>
+      </a>
+
+      <a href="https://www.instagram.com/psymania.ar/" target="_blank" class="marca-card reveal d1">
+        <span class="marca-arrow">↗</span>
+        <div class="marca-avatar">
+          <div class="marca-avatar-inner">
+            <img src="assets/instagram/brand-psymania.jpg" alt="Psymania">
+          </div>
+        </div>
+        <div class="marca-name">Psymania</div>
+        <div class="marca-type">Fiesta / Evento</div>
+        <span class="marca-role">Entrevistador</span>
+      </a>
+
+      <a href="https://www.instagram.com/harvard_bebidas/" target="_blank" class="marca-card reveal d2">
+        <span class="marca-arrow">↗</span>
+        <div class="marca-avatar">
+          <div class="marca-avatar-inner">
+            <img src="assets/instagram/brand-harvard.jpg" alt="Harvard Bebidas">
+          </div>
+        </div>
+        <div class="marca-name">Harvard Bebidas</div>
+        <div class="marca-type">Local · Córdoba</div>
+        <span class="marca-role">Creador de Contenido</span>
+      </a>
+
+      <a href="https://www.instagram.com/adixon_cba/" target="_blank" class="marca-card reveal d3">
+        <span class="marca-arrow">↗</span>
+        <div class="marca-avatar">
+          <div class="marca-avatar-inner">
+            <img src="assets/instagram/brand-adixon.jpg" alt="Adixon">
+          </div>
+        </div>
+        <div class="marca-name">Adixon</div>
+        <div class="marca-type">Local · Córdoba</div>
+        <span class="marca-role">Modelo · Creador de Contenido</span>
+      </a>
+
     </div>
   </div>
 </section>
